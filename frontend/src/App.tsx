@@ -76,7 +76,7 @@ export default function App() {
   const [queuedMove, setQueuedMove] = useState<Move | null>(null);
   const queuedMoveRef = useRef<Move | null>(null);
 
-  // Prevent accidental double submit (e.g., SHOO auto-submit + user click)
+  // Prevent accidental double submit
   const isSubmittingRef = useRef(false);
 
   // Reaction GIF handling
@@ -84,7 +84,7 @@ export default function App() {
   const reactionTimerRef = useRef<number | null>(null);
 
 
-  // Keep queuedMoveRef synced with state (avoids stale closure bugs)
+  // Keep queuedMoveRef synced with state
   useEffect(() => {
     queuedMoveRef.current = queuedMove;
   }, [queuedMove]);
@@ -148,7 +148,7 @@ export default function App() {
             setShowShoo(false);
             setCanChoose(true);
 
-            // ✅ If user already pre-picked during countdown, auto-submit now
+            //If user already pre-picked during countdown, auto-submit now
             const q = queuedMoveRef.current;
             if (q) submitMove(q);
           }, 650);
@@ -195,7 +195,7 @@ export default function App() {
 
       triggerReaction();
 
-      // ✅ force new animation cycle even if move repeats
+      //force new animation cycle even if move repeats
       setRevealRound((r) => r + 1);
 
       // Update score (TypeScript-safe because result is a union type)
@@ -402,7 +402,7 @@ function MoveDisplay({ move, roundKey }: { move: Move | null; roundKey: number }
         {move ? (
           <motion.div
             className="move"
-            // ✅ key includes roundKey so it re-animates every round
+            //key includes roundKey so it re-animates every round
             key={`${move}-${roundKey}`}
             initial={{ opacity: 0, y: 12, rotate: -6, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
@@ -415,7 +415,7 @@ function MoveDisplay({ move, roundKey }: { move: Move | null; roundKey: number }
         ) : (
           <motion.div
             className="placeholder"
-            key={`empty-${roundKey}`} // ✅ also keyed by round
+            key={`empty-${roundKey}`}
             initial={{ opacity: 0.5 }}
             animate={{ opacity: 0.7 }}
             exit={{ opacity: 0 }}
