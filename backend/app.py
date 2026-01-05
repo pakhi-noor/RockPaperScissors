@@ -14,7 +14,9 @@ app = FastAPI(title="RPS-ML Backend")
 # Allow frontend (Vite default port)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # TEMP for deployment; we'll lock it to Vercel after
+    allow_origins=[
+        "http://localhost:5173",
+        "rock-paper-scissors-two-rouge.vercel.app"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
