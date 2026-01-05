@@ -1,0 +1,294 @@
+/* =========================
+   Base Layout
+========================= */
+
+.page {
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 20% 10%,
+      #111827 0%,
+      #05070b 55%,
+      #000 100%);
+  color: #e5e7eb;
+  display: flex;
+  justify-content: center;
+  padding: 18px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  position: relative;
+}
+
+.container {
+  width: min(980px, 100%);
+}
+
+/* =========================
+   Header / Title / Score
+========================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.subtitle {
+  margin: 6px 0 16px 0;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.subtitle.centered {
+  text-align: center;
+}
+
+.scoreBox {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  padding: 10px 14px;
+  min-width: 110px;
+  text-align: right;
+}
+
+.scoreRow {
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+/* =========================
+   Countdown
+========================= */
+
+.countdownCenter {
+  display: flex;
+  justify-content: center;
+  margin: 18px 0 6px;
+}
+
+.countdownText {
+  font-size: 42px;
+  font-weight: 950;
+  letter-spacing: 3px;
+  padding: 10px 18px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* =========================
+   Arena / Cards
+========================= */
+
+.arena {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.middleCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.cardTitle {
+  margin-bottom: 8px;
+  opacity: 0.8;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.vs {
+  opacity: 0.6;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+/* =========================
+   Move Display
+========================= */
+
+.moveBox {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.move {
+  text-align: center;
+}
+
+.moveEmoji {
+  font-size: 54px;
+}
+
+.moveLabel {
+  margin-top: 6px;
+  opacity: 0.85;
+}
+
+.placeholder {
+  font-size: 28px;
+  opacity: 0.5;
+}
+
+/* =========================
+   Result Panel
+========================= */
+
+.resultCard {
+  margin-top: 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  padding: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.resultLeft {
+  min-width: 0;
+}
+
+.resultTitle {
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.resultRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.resultGif {
+  width: 140px;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+
+.predLine {
+  margin-top: 8px;
+  font-weight: 600;
+  opacity: 0.85;
+  font-size: 14px;
+}
+
+.meta {
+  margin-top: 6px;
+  font-weight: 600;
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+/* =========================
+   Controls / Buttons
+========================= */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  align-items: center;
+}
+
+.moveBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 10px 12px;
+  color: #e5e7eb;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.moveBtn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.moveBtn.selected {
+  border-color: rgba(110, 168, 254, 0.9);
+  box-shadow: 0 0 0 2px rgba(110, 168, 254, 0.20) inset;
+}
+
+.emoji {
+  font-size: 22px;
+}
+
+.moveText {
+  font-weight: 700;
+}
+
+.resetBtn {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 10px 12px;
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+/* =========================
+   Tip
+========================= */
+
+.tip {
+  margin-top: 10px;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* =========================
+   Reaction GIF (right side)
+========================= */
+
+.reactionGif {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 60;
+}
+
+@media (max-width: 520px) {
+  .reactionGif {
+    width: 120px;
+    right: 10px;
+  }
+}
