@@ -80,7 +80,6 @@ export default function App() {
   const isSubmittingRef = useRef(false);
 
   // Reaction GIF handling
-  const [showReaction, setShowReaction] = useState(false);
   const reactionTimerRef = useRef<number | null>(null);
 
 
@@ -93,11 +92,8 @@ export default function App() {
     // reset timer if user plays quickly
     if (reactionTimerRef.current) window.clearTimeout(reactionTimerRef.current);
 
-    setShowReaction(true);
-
     // auto-hide after 1.4s
     reactionTimerRef.current = window.setTimeout(() => {
-      setShowReaction(false);
     }, 1400);
   }
 
