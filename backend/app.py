@@ -5,7 +5,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Literal, Optional, Dict
 from ml import MarkovPredictor, MOVES
-from fastapi.middleware.cors import CORSMiddleware
 
 
 Move = Literal["rock", "paper", "scissors"]
@@ -15,15 +14,12 @@ app = FastAPI(title="RPS-ML Backend")
 # Allow frontend (Vite default port)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",   # local dev
-        "http://127.0.0.1:5173",
-        # add your Vercel domain after you deploy it
-    ],
+    allow_origins=["*"],  # TEMP for deployment; we'll lock it to Vercel after
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # One predictor for the whole app (single-player / local demo).
 # If you want multi-user, we can store one predictor per sessionId.
