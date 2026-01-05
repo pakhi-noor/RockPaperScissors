@@ -16,7 +16,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "rock-paper-scissors-two-rouge.vercel.app"], 
+        "https://rock-paper-scissors-schararas-projects.vercel.app/"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
